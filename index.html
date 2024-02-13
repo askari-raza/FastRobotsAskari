@@ -90,8 +90,9 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/circus.png" alt="..." />
+                            <img class="img-fluid" src="imu.JPG" alt="..." />
                         </div>
+                        <h5 class="text-center">Lab 3</h5>
                     </div>
                     <!-- Portfolio Item 4-->
                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
@@ -638,7 +639,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Lab 3</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -646,9 +647,350 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/circus.png" alt="..." />
+                                    <img class="img-fluid rounded mb-5" src="imu.JPG" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+
+                                    <!-- GOAL-->
+                                    <p class="mb-4">The primary objective of this lab is to integrate Inertial Measurement Unit (IMU) to the Artemis to use it for orientation and movement of the robot in the future labs. We start off by extracting and processing values from the Accelerometer and Gyroscope and minimize any random noise that is retrieved.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <!-- PRE LAB-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Prelab & IMU SETUP</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">Before starting the lab, I thoroughly studied the IMU properties and functionality as written in its datasheet. I connected the IMU to the Artemis and to extract raw values, I used the basic Example 1 that was given in the ICM 20948 library in the Arduino IDE that I initially installed. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">When I ran this code, I got the error of initialization of the sensor. For this, we saw that the AD0_VAL was set 1 which is the last bit of the I2C address. However the value becomes 0 when ADR jumper is closed. Therefore, to maintain correct address, we changed it to 0 which correctly initialized the sensor.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">We now move on to performing tasks pertaining to Accelerometer and Gyroscope. Before starting, we light up the LED on startup to ensure that the Artemis is correctly connected and functioning.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="AD0.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">ACCELEROMETER</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">The Accelerometer as mentioned in the datasheet returns raw values in radians so we had to convert it to degrees. For that we imported the math.h library. To calculate the tilt and roll values we use inverse tangent function using acceleration raw values from the Acccelerometer. Using this formula, we calculated pitch and roll. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <img class="img-fluid img-centered" src="accel formula.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    
+                                   
+
+                                    <!-- TASK 1-->  
+                                    
+
+                                    <p class="mb-4">We now test out the correctness of the measured and calculated values by tilting and rolling the IMU from -90 to 90 degrees. The command we created to get the roll and tilt from the IMU and the output are shown below.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="GET ACCEL.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">We now connect the Artemis to our computer via USB C cable. Initially there were no lights on the Artemis but that was because of a loose connection. I tightened the connections and it started working. To ensure that the laptop was indeed connected to Artemis, I selected COM3 which had Artemis connected indicated which meant were all set for the next tasks. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/pFFbH85w4Is" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="noise.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <!-- TASK 2-->
+                                    
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">The does not require two-point calibration since the values generated are as expected in the plotter. As shown in the result below. A bit of deviation can be noticed but that is primarily because of the limitation of having to align the IMU at an angle and take a screen shot of the serial plotter simultaneously. We see that there’s noise in the IMU readings for both tilt and roll so we basically now inspect the signal in frequency domain to understand the noisy signals. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">FOURIER TRANSFORM & LOW PASS FILTERING</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">By splitting out data into time, tilt, and roll arrays, we observe the Fourier response of the signal. The following computations are made to determine Time period, frequency, and fourier transform of the signal. We generate a new sample with a 30ms delay. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                   
+                                   
+                                    
+                                    <img class="img-fluid img-centered" src="fourier computation.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">We see  that the sampling rate is 31.26 samples per second. The time period we get is 0.032. Using this separately both for roll and tilt samples, we observe the signals in time domain Fourier spectrums of both as shown below. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/O_4OFY0Bvf4" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/H1QVsLUFtfE" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <img class="img-fluid img-centered" src="tilt time.JPG" alt="">
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="tilt fourier.JPG" alt="">
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="roll time.JPG" alt="">
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="roll fourier.JPG" alt="">
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">We see that there is a higher amplitude at frequencies below 4Hz by observing fourier of both tilt and roll. We then select 4Hz as the cut off frequency. The calculations below show how we compute RC and eventually the value of alpha to design a low pass filter to reduce noisy random signals with high frequencies. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <img class="img-fluid img-centered" src="ALPHA FORMULA.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">Now we apply the Low pass filter by adding a new command that computes the LPF and sends it over Bluetooth along with the actual values from the accelerometer. The code snippet is shown below.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <img class="img-fluid img-centered" src="lpf code.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">We now observe the real time variation of tilt for both the filtered (red) and unfiltered (blue) values. We also observe in the first fourier that we get high frequency noise in the unfiltered samples. However, the spectrum below it shows that the amplitude of frequencies above 4Hz have significantly gone down and shows that the noise has been reduced. Refer to the graphs below.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <img class="img-fluid img-centered" src="time domain filtered.JPG" alt="">
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <img class="img-fluid img-centered" src="unfiltered.JPG" alt="">
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <img class="img-fluid img-centered" src="lpf filtered.JPG" alt="">
+
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+
+
+                                    <!-- TASK 3-->    
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">GYROSCOPE</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">Now we use the angular speed retrieved from the gyroscope to calculate tilt, roll, and yaw. Please note that the units returned as raw values from the gyroscope are in degrees per second so no conversion is required. We now apply the formulas mentioned below in our code to produce tild, roll, and yaw. </p>
+
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="gyro accel formula.JPG" alt="">
+
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="gyr accel code.JPG" alt="">
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">We now observe and compare the values from accelerometer and gyroscope by adding 15ms delay and executing serial print to observe values on serial plotter.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="tilt gyr acc.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="roll gyr acc.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="yaw gyr.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                   
+
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">We see here that the same trend is followed by values generated from the gyroscope and aceelerometer. However, there’s a bias and this bias is increases as I increase the angular velocity of the IMU. This is observed with a 15ms delay and time taken to Serial.print the values. However, as faster sampling rate, the accuracy improved notably.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/wtZ2my0cMqE" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">The videos above show that the values from the accelerometer may be more accurate but they are susceptible to noise hence the sharp spikes of variation. However, the values generated from the complementary filter absorbs the noise and is close to the trend of the values from accelerometer. This shows that the complementary filter indeed reduces noise and adjusts for any bias that we otherwise see in the values from the gyroscope.</p>
+
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">SAMPLING DATA</h2>
+
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">The first test we do is to check the sampling rate of the IMU by removing any delays, Serial.print commands, or any other loops and checks like the isDataReady check. We simply create an array with values from the accelerometer stored in them and see if the values change or not. The hypothesis is that if the values change, it means the IMU updates its values faster than the main loop of the Artemis. The result below shows that the values generated by IMU are indeed different at each index of the array, thus proving that the IMU works faster than the Artemis. </p>
+
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+
+                                    <img class="img-fluid img-centered" src="imu faster.JPG" alt="">
+
+                                    <p class="mb-4">Similar to Lab 1, we collected IMU data in arrays within the main loop within a flag to check if the values are 100. We can see that values differ which means the IMU updates its value before Artemis executes a new loop.  </p>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">To sample data and send it via Bluetooth, we acquired values from the accelerometer and the gyroscope and stored each of the values in an array along with a time array. We note the time it takes to generate all this data and store them in the respective arrays.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <img class="img-fluid img-centered" src="sample.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">Here we sent the arrays over via Bluetooth and observed that without any delays or print commands or any if else statements, the sampling rate is approximately 295 samples per second stored each array. This tells us that the sampling rate increases substantially by optimizing the code. </p>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">One big Array vs multiple arrays</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">One big array to store data can be beneficial since it creates simplicity if multiple variables are being tracaked. Moreover, the indexing and the retrieval of values using array indexing becomes easier and convenient. Moreover, one single variable that stores an array takes up less space in the memory compared to multiple variables of arrays. However, separate arrays in my experience creates a cleaner code with everything well defined and separated. I believe that in Robotics, there’s a need to boost sampling rate to acquire real time values from the sensors and also maximize the number of samples that can be stored without leading to an overflow to provide feedback to the robot for longer time. For this purpose, I believe one single array would be useful.  </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">HOWEVER I DO THINK THAT WE CAN ALSO USE 2D ARRAYS that will boost both the efficiency and the clarity and ease of understanding but it requires more computing power. This can be explored in the future. </p>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">BEST DATA TYPE TO STORE DATA</h2>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">The context in this question is primarily the data retrieved from sensors. This data is generally either numerical data or can be Boolean data. Although integer takes 4 bytes which is lesser than float or double and string takes up 2 bytes per character, they don’t serve the purpose here and if numbers with more decimal places are stored, integer will ignore them whereas strings will add up to the storage taken. Therefore, float is the right data type to store data in particularly in the context of storing sensor data because it gives the right level of precision (upto 6 or 7 d.p) and takes up 4 bytes for a wide range of values. This can be argued for different applications. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">ARTEMIS MEMORY AND ARRAYS</h2>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">Artemis has a memory of 384KB equaling 393,216 Bytes. If we have a sample frequency of 295Hz as we saw above and each value stored is a double data type of 8 bytes each, we can store 49,152 data samples. The time it would take will be the number of data elements divided by sampling rate which is 49,152/295 = 166 seconds before the Artemis runs out of memory. </p>
+
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">5s worth of IMU data send over Bluetooth.</h2>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">The sample data code above stores data in multiple arrays in a span of 5 seconds while the array size is 100. And then the python script on the left shows that the values are received via Bluetooth on the Computer. A total of 100 values were sent in each array in 339ms. </p>
+                                    
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">STUNTS!!</h2>
+
+
+
+
+
+
+
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
