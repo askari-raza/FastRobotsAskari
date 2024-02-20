@@ -100,8 +100,10 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/game.png" alt="..." />
+                            <img class="img-fluid" src="TOF.jpg" alt="..." />
                         </div>
+                        <h5 class="text-center">Lab 4</h5>
+
                     </div>
                     <!-- Portfolio Item 5-->
                     <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
@@ -1021,7 +1023,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Lab 4</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -1029,9 +1031,250 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/game.png" alt="..." />
+                                    <img class="img-fluid rounded mb-5" src="TOF.jpg" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+
+                                    <!-- GOAL-->
+                                    <p class="mb-4">The primary goal of this lab is to successfully connect and test two ToF sensors that will be used in the future labs. We will focus on assessing the reliability and accuracy of the two ToF sensors and also ensure simultaneous operation of the two sensors using I2C communication protocol and Qwiic breakout board.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <!-- PRE LAB-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Prelab</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">For future operations on the robot, we will use two ToF sensors gone by the code VL53L1X. The two sensors have the same address hard coded on the board (0x52). Therefore, to establish I2C communication via the SDA and SCL communication lines, we need to program an shutdown routine for one of the sensors and change the address of the other sensor. This will allow us to read the measurements from both sensors.  </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">The placement of these sensors is very important considering the movement of the robot. The primary use of these sensors is obstacle avoidance. Now although it Is completely dependent on the map or path that we’re given to move the robot in, but one sensor has to be placed at the front of the robot. This will ensure that forward collision is avoided to protect from potential damage. The other sensor can be placed at the rear of the robot but we’ll have to consider the length of cables and placement of hardware which may limit the positioning of the second sensor. I believe, that placing the other sensor on the side of the robot (left side). This will give a better understanding of the surroundings. Moreover, if the sensors are placed at the front and back, they will not be of much utility since they both will assess objects in the same axes so it won’t tell much about the surroudings.</p>
+                                    
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">HARDWARE CONNECTIONS & SOLDERING:</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">The pins from the ToF sensors that are connected to power up and send data to the Artemis should be permanently soldered so that the data transmission is established at all times. However, the GPIO pin that shuts down the ToF sensor to allow I2C communication does not have to be permanently soldered since the pin may be required in the future for some other purpose. Moreover, the battery wires are soldered to the JST connector since the primary purpose of the battery is to power up the Artemis and the robot. However, I initially considered the charging aspect of the battery but the Professor explained that when the Artemis is connected to the laptop, it automatically charges the battery. Therefore, only the connections that have to serve a single purpose throughout the course were soldered. The others were kept detachable.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <img class="img-fluid img-centered" src="SOLDER.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="addresses.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    
+                                   
+
+                                    <!-- TASK 1-->  
+                                    
+
+                                    <p class="mb-4">We now test if the sensor has successfully connected to Artemis and what address is allocated to the sensor. For this, we executed and uploaded an example code from Apollo3 examples; Example1_wire_I2C. The address as mentioned in the datasheet of the sensor should be (0x52). But the address that was output on the Serial monitor was (0x29). The two addresses have the same 7 bits except the last bit which is the read/write bit and since there isn’t read in the address, the address is (0x29) instead of (0x52). This code ignores the read/write bit to form the address hence outputs a different address.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="circuit1.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">ToF Sensor Modes</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">The Short Range mode has a higher accuracy since shorter range. Moreover, the response time is faster since the measurement range is shorter hence fast response. However, the limited range makes it applicable only in cases where the robotic movement is confined in a small space. The medium range has a little compromised accuracy compared to short range. However, it has considerably more range which is more than twice as that of Short range. I believe Medium Range would be more applicable in our domain. Long range has 4m range which means that the accuracy reduces further but not much compared to Medium range. However, the range is one-third more compared to Medium range. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">Looking at the maze and maps used in previous year’s lab, I noticed that the sensor should be able to measure distances that are considerable given the size of a standard room. A standard room has a width of about 7.6m. Keeping this in mind, the Long range would be suitable as it measures with a range of 4m compared to 1.3m and 3m from the ShortRange and MediumRange modes. However, one downside of using this mode would be the slower response time and accuracy compared to short and medium range. However, the accuracy and response rate is not as considerable as the range factor of the LongRange hence we select the Long range mode. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">MEASURED DISTANCE ACCURACY AND RELIABILITY</h2>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">We now execute the example code to read distance in feet and feet from the sensor. Here, we run a few tests to compare the measured values with accurate expected values by fixing the sensor and moving an obstacle at different distances from it which is also being measured by a ruler. I tested the sensor with a juice box placed at 0.25ft, 0.5ft, 0.75ft, and 1ft with two light settings as shown below. I recorded 10 values for each distance and added a delay of 10 seconds so I can change the actual distance of the juice box. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="experiment.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="with light.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="without light.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">The scatter plot shows that the measured values at these distance in lower light deviate a little more than the actual value compared to the values in better lighting. However, we need to keep in mind that the actual distance may also have a small parallax error due to apparatus setup. We see a there’s an average deviation of 16% being the most at a distance of 0.25. However at greater distances, the deviation is below 10%.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">There are 10 values measured at each distance. We see that the points overlap which tells that the data is consistent and precise and it has good reliability.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="scatter.png" alt="">
+
+                                    <p class="mb-4">There are 10 values measured at each distance. We see that the points overlap which tells that the data is consistent and precise and it has good reliability. The graph below shows the eviation in measured distances with and without light. The deviation is noticeable at lesser distances.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="final_scatter.png" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">SIMULTANEOUSLY FUNCTIONING TWO SENSORS</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">As discussed earlier, both the sensors have the same address, hence, the values received from both may mix up. To differentiate which value comes from which sensor and to operate them simultaneously, we modify the code to change the address of sensor 2.</p>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">We switched off the second sensor by using the XSHUT PIN connected to GPIO pin 8 as initialized. We then change the address to (0x30) and turn off the XSHUT pin to turn on the sensor. Both the sensors now have different addresses and are generating different and correct measured values. </p>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="change address.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="final address.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="sensor values.JPG" alt="">
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">SENSOR VS ARTEMIS SPEED</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">In section 9, I wrote a code that executed the loop for 2000 times and records the number of times that the Sensors are ready and records the value. Out of 2000 iterations of the loop, sensor 1 is data ready for 71 times whereas sensor 2 is data ready for 82 times. This tells us that the speed of Artemis is much faster than the sensor. The loop runs for 2000 times in a total time of 18 seconds in which less than 100 values from the sensors are retrieved. The time between each loop is around 9ms. The current limiting factor is the condition check if the sensors are DataReady or not and the Serial.print commands. The Artemis is way faster than the sensor’s ability to send Data.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="9_CODE.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="SENSOR VS ARTEMIS.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">TIMe STAMPED TOF DATA OVER BLUETOOTH</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">I modified my code from Lab 2 particularly the ARRAY_LOOP AND ARRAY_CALL_LOOP commands. I stored 2000 values of timestamp and distance from each sensor in the arrays and sent it over via Bluetooth. The values were sent as strings and then parsed and stored in three different arrays. Here’s a video of how I varied the distance of the obstacle from the sensors and how it produced the measured values as shown in the graph below. I moved the objects back and forth infront of both the sensors simultaneously.</p>
+
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <img class="img-fluid img-centered" src="10_CODE.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="10_bt.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <img class="img-fluid img-centered" src="graph both sensors.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">This is the set up for experiment to test the operation of both values that were sent via bluetooth.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/q1-jMj-in-A" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">INFRARED TRANSMISSION SENSORS</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">This is the set up for experiment to test the operation of both values that were sent via bluetooth.</p>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">Generally, Infrared Transmission based sensors are present both as active and passive sensors. Active sensors include ToF sensors and IR proximity sensors. These emit infrared light and record the time taken to receive the reflected light off the object/obstacle. This is how it calculates the distance from an object. These sensors produces precise measurements of distance since they emit the infrared light which is received back. It is used for obstacle avoidance, object detection, and distance measurement. But the problem related to active sensors like ToF is that they consume more power to emit light continuously which is why they tend to be more expensive due to required components. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">Passive sensors simply rely on detecting infrared radiation emitted or reflected by the present objects. Their pro is the less requirement of power since they are not emitting light and hence have a lower cost due to simpler design. The problem with such sensors is that they are not able to provide precise distance measurements and may not provide direct distance measurements at all. They are also more vulnerable to environmental factors like temperature changes or ambient infrared radiation sources.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">sensitivity to textures and colors</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">I fixed our TOF sensor and placed white and black object at the same distance from the sensor. I observed that the distance measurement in both the cases do not vary a lot. The minute variation is primarily because of the noise and environmental effects. Other than that, the sensor measures the same distance for both white and black objects. From the experiment we see that color or texture does not really impact the measured distance. This can be because ToF sensors emit infrared light pulses which is not susceptible to colors compared to visible light. Hence, they are less likely effected by changes in colors or textures. However, if any object with extreme reflective or absorbent surfaces are placed, then there may be a small deviation. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <img class="img-fluid img-centered" src="grad_black_obj.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="grad_black_1.JPG" alt="">
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <img class="img-fluid img-centered" src="grad_white_obj.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="grad_white_1.JPG" alt="">
+
+                                    
+                                    
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
