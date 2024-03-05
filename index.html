@@ -111,8 +111,9 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/safe.png" alt="..." />
+                            <img class="img-fluid" src="dcmotor.jpg" alt="..." />
                         </div>
+                        <h5 class="text-center">Lab 5</h5>
                     </div>
                     <!-- Portfolio Item 6-->
                     <div class="col-md-6 col-lg-4">
@@ -1139,7 +1140,7 @@
                                     <p class="mb-4">    </p>
                                     <img class="img-fluid img-centered" src="scatter.png" alt="">
 
-                                    <p class="mb-4">There are 10 values measured at each distance. We see that the points overlap which tells that the data is consistent and precise and it has good reliability. The graph below shows the deviation in measured distances (aeraged the 10 measured values at each distance) with and without light. The deviation is noticeable at lesser distances.</p>
+                                    <p class="mb-4">There are 10 values measured at each distance. We see that the points overlap which tells that the data is consistent and precise and it has good reliability. The graph below shows the eviation in measured distances with and without light. The deviation is noticeable at lesser distances.</p>
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
@@ -1261,17 +1262,17 @@
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
-                                    <img class="img-fluid img-centered" src="grad_black_1.jpg" alt="">
+                                    <img class="img-fluid img-centered" src="grad_black_1.JPG" alt="">
 
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
 
-                                    <img class="img-fluid img-centered" src="grad_white_obj.jpg" alt="">
+                                    <img class="img-fluid img-centered" src="grad_white_obj.JPG" alt="">
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
-                                    <img class="img-fluid img-centered" src="grad_white_1.jpg" alt="">
+                                    <img class="img-fluid img-centered" src="grad_white_1.JPG" alt="">
 
                                     
                                     
@@ -1296,7 +1297,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Lab 5</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -1304,11 +1305,202 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/safe.png" alt="..." />
+                                    <img class="img-fluid rounded mb-5" src="dcmotor.jpg" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+
+                                    <!-- GOAL-->
+                                    <p class="mb-4">This lab extends our learning to usage of Motor Drivers by virtue of Pulse Width modulation to rotate the motor at the desired and variable speed. For this course, we use 2 dual motor drivers DRV8833 Motor driver carrier. The tasks in this lab aim to drive the two motors simultaneously in the desired direction and speed. In this lab, we simply explore open loop control system with the input signal from the Artemis.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <!-- PRE LAB-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Prelab</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">The motors require high amount current to generate sufficient torque to drive them on different terrains. For this, we ensure that we supply output to the motor from both the output channels on the motor driver. The motor driver consists of two channels which means two motors can be operated using one motor driver but to maximize the amount of current delivered to the motor we connect each motor to both channels of the driver. For this, we connect the Input pin A1 to B1 and A2 to B2 by soldering the wires accordingly as shown in the schematic below. The actual circuit images do not clearly show the connections, hence the schematic. We used the two channels on the same motor driver since the problem with alternative approach of using two channels from two separate drivers is the possible difference in signal generation of the two drivers. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">Therefore, we hook each motor to each separate motor driver interconnecting the corresponding outut and input pins. The output pins A1 was connected to B1 and A2 connected to B2</p>
+                                    
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="artemis and driver.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    
+
+                                    <p class="mb-4">To generate PWM signal, we use Artemis pins 12 and 13 to power one motor and A2 and A3 to power the other motor. For this, we first confirmed that the PWM enabled pins were being used by looking at the datasheet. These pins were primarily used because ToF shutdown pin was connected to pin 8 and I wanted to keep the other connections at a distance from that and from the other motor’s connections hence the selection just to avoid any short circuiting or undesired connections established.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">We powered the Artemis and Motor driver (motors) with different batteries. The reason for this is that when the motors rotate, they may generate noise or spikes of voltage because the Motors we have are DC motors. These spikes can potentially damage the Artemis if it is connected to the same source. Also, to generate maximum power to the motors, we connect it to an entirely separate battery. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <img class="img-fluid img-centered" src="batteries.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">I selected the color codes to maintain consistency between different motors and different types of connections. For inputs I used green and yellow cables and for output I used separate colors for both the motors. The wire lengths but kept long enough so that any re connections are possible and not too cumbersome. However, they were not kept so long that it may increase the vulnerability of noise. Once the wires were soldered I checked the connections by twisting and turning the cables a bit. Solid-core cables were not used since they are more sensitive to vibration at high frequency when we operate the robot car at a higher speed. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">CONNECTIONS AND PWM TESTING</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    
+                                   
+
+                                    <!-- TASK 1-->  
+                                    
+
+                                    <p class="mb-4">I first unscrewed the robot’s shell and unhooked the microcontroller already installed and stripped the motor connection to be hooked to the motor driver. I removed the LED, button, and PCB as well.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">I first tested one motor by making all the connections. I connected pin A2 and A3 to the input pins of the motor driver. Then the VIN and GND were hooked to a cable that will later be connected to the battery using the connecter given at the bottom of the robot. For now, these wires were connected to a DC power supply that maintained its voltage level at 3.7V for the purpose of testing. I established the Ground between motor driver and Artemis and then ensured to connect corresponding input pins of both channels to one another (A1 to B1 and A2 to B2) and similarly for the output pins. I then connected the motor to A1 and B2 because I wanted to maintain a distance between the two soldered motor wires in order to avoid any short circuiting when the circuits were placed on the robot. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <img class="img-fluid img-centered" src="initial connection.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">I then programmed a basic code for the motor supplying an analog PWM signal of 90 where it goes up to 255 which means 100% duty cycle.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">I first tested the input and the output signal using the oscilloscope in our lab. First by changing its scale and positioning, I observed a PWM signal that reflected a duty cycle of less than 50% as shown below:</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="pwm oscilloscope.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="code one motor.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">The motor was tested by placing the robot on a box so that the motors are not in contact to any surface. The motor driver was connected to the white battery in the image above and the motor was tested. It worked fine however, I noticed a few spikes in the PWM signal generated by the Artemis. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">I did the same for the other motor and it also gave a similar response. I now had to place the artemis, drivers, and sensors on the car in an efficient way.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">I now confined the cables and placed the motor drivers and artemis in the front of the car where a depression was available in the chassis that gave ample space. The Artemis battery was also placed there. The Artemis orientation was kept to ensure that any external connections were made very easily in the future. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="final robot.jpg" alt="">
+
+                                    <p class="mb-4"> </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="sensor2.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="sensor1.jpg" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">I set the PWM of the motors by giving analog signal of 30, 40, 60, and 70. The motors were unable to rotate while on the ground at PWM of 40. However, at a PWM of 50 it started moving but on surface with friction (my room wooden floor) it didn’t move but on the tiles of the lab it moved slowly. Therefore, I set the minimum PWM at 50 at which it starts moving forward (in a straight line). </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/nweVox-SK8A" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">After changing the PWM it steered correctly as shown below. The routine in the code makes the robot drive forward for 2 seconds then stop and steer to the right on its axes such that it steers 180 degree at a PWM of 200 and 230. This is the stunt we performed to confirm that robot is responding correctly.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/KygLDUcYj2U" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="both motors stunt.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">Once the steering worked, I tested the capability of the motors to rotate at same speeds and stop at the same time. Initially as shown in the video below, at a PWM of 90, the two motors rotated at almost a similar speed but decelerated and stopped at different rates </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/QICycvqkAHc" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">This is why the robot steered to the right exactly when the motors decelerate and stop. To fix this, I operated the left motor at a PWM of 75 then 80 while keeping the other motor at 90. At a PWM of 80 for the left motor, I was able to move the robot in a straight like for around 6 feet distance.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">All these demonstrations were done on different terrain to notice difference in behavior of the motors on them.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/oPoWa1lujLo" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">GRADUATE LEVEL 5000</h2>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Frequency from analogwrite</h2>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">The Artemis default frequency for analogWrite is around 980Hz. The frequency of PWM signal indicates how fast the PWM signal is changing from HIGH to LOW. This does not directly affect the speed of the motor but improves control over the motor speed since the higher the frequency the faster the changes in voltage level of the PWM. The frequency affects the responsiveness of the motor. Therefore, the frequency generated by the Artemis shall be sufficient for the motors. If we manually configure the frequency of the PWM signal to be higher, it is likely to enhance the control of the motor and its responsiveness. Moreover, higher frequencies are less likely to produce noise which is good for the motor operation. Higher frequencies also reduce vibration in motors which allow for better path following by the robot and keep it accurate.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
+                                    <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
                                     </button>
                                 </div>
