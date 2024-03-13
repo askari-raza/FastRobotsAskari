@@ -121,8 +121,9 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/submarine.png" alt="..." />
+                            <img class="img-fluid" src="pid_process.png" alt="..." />
                         </div>
+                        <h5 class="text-center">Lab 6</h5>
                     </div>
                 </div>
             </div>
@@ -1520,7 +1521,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Lab 6</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -1528,9 +1529,200 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." />
+                                    <img class="img-fluid rounded mb-5" src="pid_process.png" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+
+                                    <!-- GOAL-->
+                                    <p class="mb-4">This lab introduces us to application of PID control to vary the motor speed using duty cycle to avoid collision from an object in range. We test PI, PD, and PID controllers for this with variety of tuning settings to achieve the desired motion and behavior of the robot.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <!-- PRE LAB-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Prelab</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">To control the Robot at our own discretion, I used the good old BLE data transmission from my laptop to the robot to control its movement. For this, I simply initialized the motor drivers, Artemis pins, and the two sensors on different addresses and created commands to start the robot’s movement and send that data through Bluetooth to my laptop. The snippet below shows the initializations. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="initialization.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">I then created two commands. The first command GET_VAL sets a flag high which executes the PID control loop in the main loop of the Artemis and SEND_VAL sends the data as a string and appends it into a list. The snippets below show the Commands and the Bluetooth function to get the data and how the data looks.</p>
+                                    
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="commands.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="ble codes.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="data_fromble.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    
+
+                                    <p class="mb-4">In this code, I also added a case HARD_STOP which stops the motor to rest and exits the PID loop that is being executed in the main loop.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">I kept the size of arrays that stored time, distance, and duty cycle values to 5000 which was sufficient given the memory of the Artemis Controller.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Extrapolation</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">We noticed that when we ran the main loop 4000 times, only 4% loops generated actual values from the sensor meaning the sensor was ready to give the data, however, the rest loops calculated interpolated values. A total of 4000 loops were executed in 43,800 milli seconds with only 149 actual values generated by the sensor. This means the frequency of the sensor was 3.4Hz or 3.4 values per second whereas the frequency of the Artemis was 91Hz. Therefore, I wrote a chunk of code that interpolated the values. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">My approach for interpolation was that before the loop started running, I stored a value from the sensor as the last value. As the loop ran, I stored the last and the second last value and its time stamp generated from the sensor and used those to calculate the interpolated value at the next time stamp until the next actual value was generated by the sensor which became the last value. The snippet below shows this: </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="interpolation.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">This interpolation was tested by storing the values in the arrays and also storing a string in another array with values “Actual” and “interpolated” to use these to understand if the interpolation was correctly done. I tested the interpolation and it came out following the same trend as expected as demonstrated below where I compared the trend of actual and interpolated values against time. A little variation is seen since the timestamp at which actual and interpolated values are acquired are different. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <img class="img-fluid img-centered" src="comparison of interpolated and actual values.png" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">Now that we use interpolated values to run our PID controller, the frequency of PID and sensor are decoupled. The PID is running at a frequency of 92Hz contrary to the small frequency of the sensor.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">PID CONTROLLER</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <!-- TASK 1-->  
+                                    
+
+                                    <p class="mb-4">For the PID, I set the Kp value as a fraction of the max duty cycle that I want to supply to the motors and the maximum distance that sensor can measure. Hence the Kp value was set as 150/4000 since Long mode measures upto 4000mm distance from the sensor. I also tested the Kp values of 0.05, 0.07 but the response from at Kp of 0.037 was more suited in terms of responsiveness in front of an object. Following the process for PID control as shown below, we executed integrator and derivative and tuned the suited Ki and Kd values until we found the ideal ones.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <img class="img-fluid img-centered" src="pid_process.png" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">The snippet below shows the computation of error difference and sum of error for the integrator and derivative module alongside proportional control: </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <img class="img-fluid img-centered" src="pid_code.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">The computations for total errors and error derivatives are used to find the derivative and integrator components of the PID. I set the Kp value of 0.037 as a benchmark for the Ki and Kd values and tested multiple values from the range of 0.001 to 0.009 and found the ideal values as mentioned below:</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="kp,ki,kd vals.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">Since the benchmark was set at 150 duty cycle, any value above 150 was set at 150 and any value below -150 was set at -150.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">I used the values extracted from BLE transmission to plot the duty cycle and the interpolated/actual distance at each time stamp. We can see a similar pattern in the variation in both duty cycle and distance from the object. We also see that for distance values over 4000, the duty cycle is clipped at 150.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="distance and duty cycle.png" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                   
+                                    <p class="mb-4">The robot was finally tested with these values and the following behavior was observed. To ensure that it behaved correctly on different terrains I tested the robot on vinyl and carpeted terrains.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                   
+                                  
+                                    
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/1M0zbpzZsGI" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/ixQTi20Bfo4" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                   
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">In the video on the vinyl, we see that the robot varies its speed based on distance from different objects in its path that were placed in the middle to ensure that the PID is correctly working. The other robot, wall, and response to the box confirm that that the robots PID works correctly also in the case when it gets too close to the object and reverse its direction.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">WIND UP TASK GRADUATE LEVEL 5000</h2>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">To ensure correct functionality of Integrator, I tested the integrator by keeping the robot at larger distances. The issue that happened as seen from the values was that the error became too large. This is mainly because I summed up all the errors and therefore, the effect of integrator bypassed the proportional controller completely. The robot had a large error accumulated and didn’t stop correctly. For this, I capped the total error to 2000 as shown the the code snippet below. This helped prevent the error sum to be accumulated to large value.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="code for wind up.JPG".jpg" alt="">
+
+                                    <p class="mb-4"> </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">A value of 0.001 for the Ki was which correctly minimized the oscillation of the robot front and backwards when detecting an object.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/DmkIEkgBCcE" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/gAnpjy2LiJ4" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                   
+
+                                   
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
