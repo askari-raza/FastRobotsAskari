@@ -1593,31 +1593,40 @@
                                     <p class="mb-4">    </p>
 
 
-                                    <p class="mb-4">To control the Robot at our own discretion, I used the good old BLE data transmission from my laptop to the robot to control its movement. For this, I simply initialized the motor drivers, Artemis pins, and the two sensors on different addresses and created commands to start the robot’s movement and send that data through Bluetooth to my laptop. The snippet below shows the initializations. </p>
+                                    <p class="mb-4">For BLE Transmission, I made a case that accepted a string of 4 values from my laptop (jupyter notebook) and sparsed those 4 values and assigned to 4 variables kp_val, ki_val, kd_val, and distance from the object. Once these values are sparsed and assigned, the value of kp, ki, kd, and set point are set from these values and the PID is enabled.  </p>
                                     <p class="mb-4">    </p>
-                                    <p class="mb-4">    </p>
-                                    <p class="mb-4">    </p>
-                                    <img class="img-fluid img-centered" src="initialization.JPG" alt="">
-                                    <p class="mb-4">    </p>
-                                    <p class="mb-4">    </p>
-                                    <p class="mb-4">    </p>
-                                    <p class="mb-4">I then created two commands. The first command GET_VAL sets a flag high which executes the PID control loop in the main loop of the Artemis and SEND_VAL sends the data as a string and appends it into a list. The snippets below show the Commands and the Bluetooth function to get the data and how the data looks.</p>
+                                    <p class="mb-4">The snippets below show the command and the python script that enables this.</p>
                                     
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
-                                    <img class="img-fluid img-centered" src="commands.JPG" alt="">
+                                    <img class="img-fluid img-centered" src="getval.JPG" alt="">
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
-                                    <img class="img-fluid img-centered" src="ble codes.JPG" alt="">
+
+                                    
+
+                                    <p class="mb-4">The python script basically takes in values of these variables as strings and concatenates them with ‘|’ to make a string that can be sparsed by ide code. We keep changing these values to test out different PID behaviors. These values are sent as floats to the arduino.</p>
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
-                                    <img class="img-fluid img-centered" src="data_fromble.JPG" alt="">
+                                    <img class="img-fluid img-centered" src="python notebook.JPG" alt="">
+
+                                    <p class="mb-4">This same case sets the pid_control flag to 1 which starts the PID loop in the void main loop for 2000 iterations in which the PID values are recorded in arrays. The next case called SEND_VALUES send the values are string to the laptop via Bluetooth and it is sparsed from python.  </p>
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
+                                    
+                                    <img class="img-fluid img-centered" src="send_val command.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="python script1.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
 
                                     
 
