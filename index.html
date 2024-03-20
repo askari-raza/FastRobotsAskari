@@ -125,6 +125,36 @@
                         </div>
                         <h5 class="text-center">Lab 6</h5>
                     </div>
+                    <!-- Portfolio Item 7-->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal7">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="Roll-Yaw-Pitch.jpg" alt="..." />
+                        </div>
+                        <h5 class="text-center">Lab 7</h5>
+                    </div>
+                     <!-- Portfolio Item 8-->
+                     <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal8">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="pid_process.png" alt="..." />
+                        </div>
+                        <h5 class="text-center">Lab 8</h5>
+                    </div>
+                    <!-- Portfolio Item 9-->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal9">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="pid_process.png" alt="..." />
+                        </div>
+                        <h5 class="text-center">Lab 9</h5>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1742,6 +1772,266 @@
                                    
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <!-- Portfolio Modal 7-->
+          <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" aria-labelledby="portfolioModal7" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Lab 7</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="Roll-Yaw-Pitch.jpg" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
+
+                                    <!-- GOAL-->
+                                    <p class="mb-4">This lab extends to implementation of PID control to achieve desired orientation or yaw of the robot. We do this by tuning values of PID factors using Bluetooth communication from our laptop to test out behavior at different values and further analyze the behavior by recording the data.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <!-- PRE LAB-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Prelab - BLE Set up</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">Just like the set up for PID in ToF sensor lab, I made a case that accepted a string of 4 values from my laptop (jupyter notebook) and sparsed those 4 values and assigned to 4 variables kp_val, ki_val, kd_val, and desired angle. Once these values are sparsed and assigned, the value of kp, ki, kd, and set point are set from these values and the PID is enabled.  </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">The snippets below show the command and the python script that enables this.</p>
+                                    
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="get_val command.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    
+
+                                    <p class="mb-4">The python script basically takes in values of these variables as strings and concatenates them with ‘|’ to make a string that can be sparsed by ide code. We keep changing these values to test out different PID behaviors. These values are sent as floats to the arduino.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="python script.JPG" alt="">
+
+                                    <p class="mb-4">This same case sets the pid_control flag to 1 which starts the PID loop in the void main loop for 2000 iterations in which the PID values are recorded in arrays. The next case called SEND_VALUES send the values are string to the laptop via Bluetooth and it is sparsed from python.  </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <img class="img-fluid img-centered" src="send_val command.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="python script1.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">P Controller Implementation</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    
+                                   
+
+                                    <!-- TASK 1-->  
+                                    
+
+                                    <p class="mb-4">In this lab, I implemented a PID controller for orientation control of the robot. As expected, the yaw at the start of PID is zero. The target here to test out PID control was to make the robot rotate and orient itself to the set point given to the robot. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">To start off, I first determined the Proportional controller. The set points or desired angle I wanted the robot to orient to was 90 degrees and 135 degrees so I implemented PID controller for that and tuned the values. For the computation of PID and implementation the code below shows the methodology and it starts with an error signal that is basically the difference between the angle we want the robot to rotate to and the yaw of the robot at a given point. The components of PID are calculated and added to generate a duty cycle for the motors. The code below shows PID implementation: </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                   
+                                    <p class="mb-4">First I implemented P controller for which the initial value I set was 0.15 and the intuition behind it was to give a PID value that is a proportion of the max deviation of 180 degree so I set a value of 0.15. However, at this value the robot does not exactly move to 135 degree angle and there is no overshoot recorded. The response can be seen in the graph below:.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="kp 0.15 no overshoot.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="error_duty_0.15kp.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                   
+                                    <p class="mb-4">I also added a condition within the PID code that if the last 15 values are less than 5% of the maximum deviation i.e less than 9 degrees then that means the robot can be stopped and the PID control can end. The implementation of PID and this logic is below along with the use of this condition:</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="last_15_vals.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">I then increased the value to around 0.4 and the reason behind this was that I wanted to achieve a maximum duty cycle of 70 at a required angle of 180 degrees. The robot moved towards the desired angle really quickly and there was an offshoot that I observed.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="kp 0.39.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">PID Controller</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">I programmed the PID within the main loop and added the last 15 values condition to it too. All the values including P, I, D, Yaw, Error, and Time are recorded in arrays that will be sent later. The snippet below shows the code.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="pid code.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">Now I also added the integrator and derivative component to PID. For the integrator, I varied the Ki value from 0.01-0.09. I received the optimum response at a value of 0.06 ki value. For the derivative component I varied kd from 0.01 to 0.09 and fixed a value of 0.07 for optimum response. The below shown responses are for yaw over time for the PID, error and duty cycle, and the separate P, I, and D components for a desired angle of 135 degrees.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="yaw with pid.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="error_duty_with pid.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="derivative with pid.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="integrator response with pid.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                              
+                                    <p class="mb-4">The videos below show how the robot reacts at a desired set angle of 90, 135, and 180 degrees.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/O38HUWC068I" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/owFQ8WE2v6Q" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/oNOSm_g9rW8" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">These videos show how the robot orients itself when an external force changes its orientation.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/_zT9o_dzl6A" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/xFpdWlB7vps" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">GRADUATE LEVEL 5000 - WINDUP</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <p class="mb-4">While I tested with PI controller for different desired angles like 90, 135, and 180 degrees, I noticed that the integral component increased substantially when the desired angles were large. This is likely to cause a drift because if the error remains positive then the sum of errors will keep increase and becoming more positive which will affect the proportional component. So for this, I added a wind up factor of 4 since the maximum duty achieved even by the proportional is 70, hence, capped the integral factor at 4 to reduce drift. The maximum duty cycle was also wound up at max duty cycle of 70 that was given apart from the base speed of 110 and 100 to right and left motors to cover up the offset between the two motors. The response is shown below. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">These figures show te error and duty cycle response, I component and yaw output with time after WINDUP </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="yaw with windup.JPG" alt="">
+
+                                    <p class="mb-4"> </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="error_duty_with windup.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="ingetfrator with windup.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+
+                                    <p class="mb-4">Here I set the desired angle to 135 and observe the behavior with windup implemented</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/Sgrckj2pHDg" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
                                     </button>
                                 </div>
