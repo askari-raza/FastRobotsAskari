@@ -151,9 +151,9 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="my_picture.png" alt="..." />
+                            <img class="img-fluid" src="stunt.jpg" alt="..." />
                         </div>
-                        <h5 class="text-center">coming soon</h5>
+                        <h5 class="text-center">Lab 9</h5>
                     </div>
                 </div>
             </div>
@@ -2279,29 +2279,168 @@
 
 
 
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">GRADUATE LEVEL 5000 - WINDUP</h2>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <!-- Portfolio Modal 9-->
+          <div class="portfolio-modal modal fade" id="portfolioModal9" tabindex="-1" aria-labelledby="portfolioModal9" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Lab 9</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="stunt.jpg" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
 
-
-
-
-
-
-
-
-
-
-
-
-                                    <p class="mb-4">While I tested with PI controller for different desired angles like 90, 135, and 180 degrees, I noticed that the integral component increased substantially when the desired angles were large. This is likely to cause a drift because if the error remains positive then the sum of errors will keep increase and becoming more positive which will affect the proportional component. So for this, I added a wind up factor of 4 since the maximum duty achieved even by the proportional is 70, hence, capped the integral factor at 4 to reduce drift. The maximum duty cycle was also wound up at max duty cycle of 70 that was given apart from the base speed of 110 and 100 to right and left motors to cover up the offset between the two motors. The response is shown below. </p>
+                                    <!-- GOAL-->
+                                    <p class="mb-4">This lab is an accumulation of all the learnings from previous labs and requires us to perform a wild stunt to show case whatever we have done so far using sensors with the robot.</p>
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
-                                    <p class="mb-4">These figures show te error and duty cycle response, I component and yaw output with time after WINDUP </p>
+                                    
+                                    <!-- PRE LAB-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Stunt 2</h2>
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">    </p>
-                                    <img class="img-fluid img-centered" src="yaw with windup.JPG" alt="">
+                                    <p class="mb-4">    </p>
 
+
+                                    <p class="mb-4">For this lab, I selected task B because honestly, it looked cooler. I wanted to make things a little more challenging so I tested my robot by moving it really fast at a PWM of 180 towards the wall starting at a distance of more than 10 feet from the wall. The moment it reached a distance of 3.5 feet from the wall, it did a 180 degree turn to pull off a drift.</p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">The methodology I used in this stunt was the following:</p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">I first used my orientation control (using PID) code and initialized ToF sensor in it.</p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">After successful testing of both IMU and ToF sensor simultaneously, I added a routine using if and else statements in which the robot moved in a straight line at a PWM of 180 towards the wall..</p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">The moment it reached a distance of 3.5 feet from the wall, it did a 180 degree turn for which the condition I used was that if the error (set point distance minus actual distance) was equal to or less than 0, the PID controlled orientation was activated the robot turned until it achieve an error of 0 which meant it achieved a set point of 180 degrees. </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">As we discussed in the earlier labs that the rate of data returned from the ToF is slower than the frequency at which Artemis operates, we used linear interpolation to perform the stunt for which I merged my Linear interpolation code with orientation control code.</p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">The code below shows the logic embedded within it: </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="code.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                  
+
+                                    
+
+                                    <p class="mb-4">I then tested the code on the robot and after multiple iterations with varying PID values, I noticed that a higher set of Kp values will achieve the target since the robot is being moved at a higher speed hence it has a higher momentum so requires greater force to steer 180 degrees. For this I kept a Kp value of 0.8 with a Ki value of 0.06, and Kd value of 0.05. The stunts were performed multiple times to make sure that no bloopers happened.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">Here’s a demo of how the robot performed. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/4TWTxO8QQsw" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/cyJGRB9TlrY" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    
+                                    <!-- TASK 1-->  
+                                    
+
+                                    <p class="mb-4">As soon as the robot completes a 180 degree turn, the error becomes positive again so the robot then starts moving in a straight line at high speed and maintains its distance from the walls while moving as seen in the video. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+
+                                    <p class="mb-4">To start off, I first determined the Proportional controller. The set points or desired angle I wanted the robot to orient to was 90 degrees and 135 degrees so I implemented PID controller for that and tuned the values. For the computation of PID and implementation the code below shows the methodology and it starts with an error signal that is basically the difference between the angle we want the robot to rotate to and the yaw of the robot at a given point. The components of PID are calculated and added to generate a duty cycle for the motors. The code below shows PID implementation: </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="graph.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                 
+                                   
+                                  
+                                   
+                                    <p class="mb-4">We see in this graph that as the robot moves straight towards the wall, the orientation error is 0. However, the moment it reaches a distance of less than 3.5 feet from the wall, the error goes to 180 degree as highlighted be the spike in blue line for orientation error. This tells that when the robot is at a distance of less than 3.5 feet from the wall, the error goes up to 180 degree and the robot has to steer to rotate 180 degree. At this point, there’s a huge spike in the duty cycle graph as we see from the orange line. With a spike in duty cycle we then see the error coming down and the duty cycle decreasing gradually as well showing the pattern expected from the PID control. The same trajectories are observed when the robot goes back as shown in the video and detects walls at a distance of 3.5 feet in other instances.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Blooper</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">This is me heading back home from the campus at slightest inconvenience:</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/0muwez33GmE" frameborder="0" allowfullscreen></iframe>
+                                    </div>
                                  
 
 
