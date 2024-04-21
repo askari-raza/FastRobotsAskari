@@ -155,6 +155,18 @@
                         </div>
                         <h5 class="text-center">Lab 9</h5>
                     </div>
+                     <!-- Portfolio Item 10-->
+                     <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal10">
+                        
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="titlepic.png" alt="..." />
+                            
+                        </div>
+                        <h5 class="text-center">Lab 10</h5>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2442,6 +2454,212 @@
                                         <iframe width = "560" height="315" src="https://www.youtube.com/embed/0muwez33GmE" frameborder="0" allowfullscreen></iframe>
                                     </div>
                                  
+
+
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- Portfolio Modal 10-->
+         <div class="portfolio-modal modal fade" id="portfolioModal10" tabindex="-1" aria-labelledby="portfolioModal8" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Lab 10</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="titlepic.png" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
+
+                                    <!-- GOAL-->
+                                    <p class="mb-4">The purpose of this lap is to use IMU and ToF sensors to create a map of the static room particularly of the maze that has been made in our lab and identify obstacles and objects in its path. This mapping will be used in localization in the future lab. To do this, distance values are recorded at different coordinates in the map and combined to generate a map.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <!-- PRE LAB-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Overview of tasks</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">I look to implement PID controlled orientation control to rotate the robot by 360 degrees. Meanwhile, values will be recorded from the ToF, IMU, and timestamp values. These values will be recorded at five different locations including origin and will be combined to generate a line based map.</p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Approach</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                  
+
+                                    
+
+                                    <p class="mb-4">The approach I took here is to rotate the robot by 360 degree and record the ToF sensor values simultaneously to identify any obstacles within the maze at each orientation to create a map. To do this, I used the good old PID controlled orientation that I used in previous labs including the stunt lab. However, I modified the code a bit since I wanted to record ToF distance values while the robot is still. The set point is set at 360 degree and the PID values for the same the same PID model as used in previous labs is given below:.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                 
+                                    
+                                    <img class="img-fluid img-centered" src="pid vals.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                   
+                                    <!-- TASK 1-->  
+                                    
+
+                                    <p class="mb-4">For this, I added a function in the code which said that while the robot is rotating by 360 degrees, if it orientation is within 1.5 degrees of a multiple of 20 then it should stop for 1000 milliseconds and if the ToF is data ready then it should record a distance value. This meant that the robot stopped at every 20 degrees and recorded a distance value from the ToF sensor. The snippet below shows this implementation:  </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="function for check.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">This implementation worked correctly and the robot also rotated approximately on its axis and ensured that it stayed within the tile. The video below shows that it stays within its tile hence we can assume that it rotated around its coordinate approximately. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/0muwez33GmE" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                   
+
+                                   
+                                  
+                                   
+                                    <p class="mb-4">I recorded the error values, along with timestamp and the corresponding ToF distance values whenever the robot stopped. It recorded approximately 18 values since it stopped at incremenets of every 20 degrees. I did this for all the coordinates that were (0,0) , (5,3) , (5,-3) , (0,3) , (-3,-2) and recorded the values and plotted them in polar coordinates as well as spatial axes. The images below show the separate maps. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                 
+                                    <p class="mb-4">The images below shows graphs both in polar plots as well as cartesian plots. The X and y coordinates in cartesian plots were generated by multiplying the distance with cosine and sine of theta or the angles which is actually the orientation of the robot at a given instant. This provided a map of the room from each coordinate:.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                   
+                                  
+                                    <p class="mb-4"> At coordinate (-3,-2):</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="-3_-2.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4"> At coordinate (0,3):</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="0_3.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4"> At coordinate (5,3):</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="5_3.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <p class="mb-4"> At coordinate (5,-3):</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="5_-3.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4"> At coordinate (0,0) origin:</p>
+
+                                    <img class="img-fluid img-centered" src="0_0.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                   
+                              
+                                    <p class="mb-4">Finally, I combined the five different plots and merged them to generate a map that replicates the setting of the actual room-based maze. Based on our learning of matrix transformation, we did some frame transformation to adjust the plots to the same origin. These calculations are done in milli meters which is the unit in which we get the data from the ToF sensor.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="tentative map.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Line based Map</h2>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">I plotted the dimensions of the room and overlayed it with the final plot of the merged coordinates since the merged plot only displays the outline of the room hence it cannot be used in the simulation.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">Here’s the code for implmenetation:</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="codef or map.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">The output of the dimensions of the room plotted:</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                  
+                                    <img class="img-fluid img-centered" src="rooom outlione.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">Finally, the merged plot looks like this:</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="final map.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                  
+
+
+
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Conclusion</h2>
+
+                                    <p class="mb-4">The virtual map of this static room was created successfully. However, there were some challenges faced with respect to the discrete motion of the robot while rotating and stopping to gather ToF values. Therefore, PID tuning consumed significant amount of time. This lab helped me understand the applied concept of mapping for robots. This will surely assist me in the upcoming localization lab.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                               
+
+
 
 
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
