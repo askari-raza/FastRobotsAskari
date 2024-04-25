@@ -167,6 +167,16 @@
                         </div>
                         <h5 class="text-center">Lab 10</h5>
                     </div>
+                     <!-- Portfolio Item 11-->
+                     <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal11">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="title_local.jpg" alt="..." />
+                        </div>
+                        <h5 class="text-center">Lab 11</h5>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2469,7 +2479,7 @@
         </div>
 
          <!-- Portfolio Modal 10-->
-         <div class="portfolio-modal modal fade" id="portfolioModal10" tabindex="-1" aria-labelledby="portfolioModal8" aria-hidden="true">
+         <div class="portfolio-modal modal fade" id="portfolioModal10" tabindex="-1" aria-labelledby="portfolioModal10" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
@@ -2673,6 +2683,163 @@
                 </div>
             </div>
         </div>
+         <!-- Portfolio Modal 11-->
+         <div class="portfolio-modal modal fade" id="portfolioModal11" tabindex="-1" aria-labelledby="portfolioModal11" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Lab 11</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="title_local.jpg" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
+
+                                    <!-- GOAL-->
+                                    <p class="mb-4">This lab is a simulation based lab where we aim to use Bayes Filter to execute grid localization on the robot in the simulation.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <!-- PRE LAB-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Grid Localization</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">The robot state is 3 dimensional and is given by (x, y, and theta). The robot’s world is a continuous space that spans from the range of coordinates given for all dimensions in the lab write up.</p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                     <!-- PRE LAB-->
+                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Control Function</h2>
+                                     <p class="mb-4">    </p>
+                                     <p class="mb-4">    </p>
+                                     <p class="mb-4">    </p>
+                                     <p class="mb-4">    </p>
+ 
+ 
+                                     <p class="mb-4">The control function determines the sequence of control of the robot between any two arbitrary positions within the 3D space. The logic in this function finds the delta_rot1 and delta_rot2 and delta translation. The snippet below shows the function:.</p>
+                                     <p class="mb-4">    </p>
+                                     <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="compute control.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                      <!-- PRE LAB-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Odometry Motion Model</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">The odometry motion modelling function. For each prediction step, the function calculates transition probability. A gaussian distribution model is assumed to determine the probability curve in this simulation. The snippet below shows the function:</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="odometry.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                     <!-- PRE LAB-->
+                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Prediction Step and Sensor Model</h2>
+                                     <p class="mb-4">    </p>
+                                     <p class="mb-4">    </p>
+                                     <p class="mb-4">    </p>
+                                     <p class="mb-4">    </p>
+ 
+ 
+                                     <p class="mb-4">Prediction step loops through all the potential locations of the robot and based on Bayes’ Theoram, it calculates a probability or belief that the robot is at the current location given an action. The function loops through all 3 dimension values for the previous and the current values i.e x, y, and theta. The code below shows this:</p>
+                                     <p class="mb-4">    </p>
+                                     
+                                     <p class="mb-4">    </p>
+                                     <img class="img-fluid img-centered" src="prediction step.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">The function sensor model uses gaussian function to determine the probability of the sensor reading where it finds the possible correctness of the actual sensor’s reading based on the robot’s current position. The function is displayed below:.</p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="sensor model.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Update Step</h2>
+                                     <p class="mb-4">    </p>
+                                     <p class="mb-4">    </p>
+                                     <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">Update step runs a loop in which each goes through the pre defined grid and determines probabilities that the observations actually are the same as the cell from which they are obtained. The belief for each pose is multiplied by the probability we found prior for the sensor reading accuracy and that particular pose. Now, the belief is updated in this step as given in the function below:</p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <img class="img-fluid img-centered" src="update step.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Simulation Results and Video</h2>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">The simulation shows the robot operating on the trajectory we defined earlier. It uses Bayes filter along with prediction, observation, update step between each successive points. The red line shows the odometry data, green shows ground truth, and belief is shown in blue. The video below shows that the bayes filter is quite accurate by the fact that the belief follows the same trajectory as the ground truth. The more the tile is white, the higher the probability of robot being in that tile in the next move. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/slqtTqcyt4U" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    
+                                    
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">This lab successfully shows how Bayes Filter can be applied to localization algorithms. Ignacio really helped me set up the Python 3.10 and create new environment as there were some issues with packages not being installed when downgrading to Python 3.10.</p>
+                                    <p class="mb-4">    </p>
+                                    
+
+                                   
+                                 
+
+
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
