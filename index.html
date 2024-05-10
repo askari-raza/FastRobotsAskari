@@ -177,6 +177,18 @@
                         </div>
                         <h5 class="text-center">Lab 11</h5>
                     </div>
+                    <!-- Portfolio Item 12-->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal12">
+                        
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="title_11.png" alt="..." />
+                            
+                        </div>
+                        <h5 class="text-center">Lab 12</h5>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2839,6 +2851,157 @@
                 </div>
             </div>
         </div>
+         <!-- Portfolio Modal 12-->
+         <div class="portfolio-modal modal fade" id="portfolioModal12" tabindex="-1" aria-labelledby="portfolioModal12" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Lab 12</h2>
+
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="title_11.png" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
+
+                                    <!-- GOAL-->
+                                    <p class="mb-4">The purpose of this lab is we basically apply Bayes Filter for grid-based localization. The objective was to simulate the robot in navigating a prefetrmined path. At each step, we use Bayes Filter to implement robot's localization.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <!-- PRE LAB-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Localization Simulation</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">Here, we simply executed the lab 11 simulation jupyter notebook which helps to simulate how the robot localizes in the given map. This graph shows the ground truth, odom, belief  as the outputs:</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                 
+                                    
+                                    <img class="img-fluid img-centered" src="simulation_1.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                   
+                                    <!-- TASK 1-->  
+                                    
+
+                                    <p class="mb-4">To interpret this visualization, the ground truth is shown in green line, belief in blue, and odom is show by the red line. The visualization shows that the Bayes Filter works as expected. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">To actually perform localization on the robot, we wrote a code which would get the distance measurements from ToF sneor at every 20 degrees of rotation from 0 degree to 360 degrees with 20 degree incremenets made by the loop. I applied a closed loop PID with a counter of 18 since it would rotate by 20 degrees a total of 18 times to get the values. The code below shows the implementation. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="20_degree_rotation_code.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">This implementation worked correctly and the robot also rotated approximately on its axis and ensured that it stayed within the tile. The video below shows that it stays within its tile hence we can assume that it rotated around its coordinate approximately. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/a2DnCLHdFBI" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                   
+
+                                   
+                                  
+                                   
+                                  
+                                    <p class="mb-4"> Here I have implemented the python code on jupyter. THis is basically a notification handlers that arranges the data that waas received from the Artemis and stored in a a linear list. It is then converted to column array in numpy. I retrieved the distance values from Time of Flight sensor and the orinetation angles from IMU.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="python_code.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4"> Once the rotation of the robot was tested multiple times, and values were being retrieved from the notification handler, I executed the observation loop function at the points listed in the lab write up. The results and the coordinates are shown in the snippets below. The thin white lines intersection is the origin and the results show that the localization of the points align with the truth correctly.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4"> At coordinate (-3,-2): At this point, the result was decent particularly in the x axes the values overlap where the greendot shows the ground truth.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="-3,2.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4"> At coordinate (0,3): Similarly for this point, the result was acceptable although not accurate in either of the axes like in the case of -3,-2.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="0,3.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+
+
+                                    <p class="mb-4"> At coordinate (5,3): This waas the best result I could obtain at this point. For this point, in order to reduce bias, I removed some of the anomalies or extreme values that were highly biased which helped in getting high variance in values but less biased since the sensor returned some of the values while vibrating at its axis.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="5,3.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4"> At coordinate (5,-3), the localization was not at all accurate and had a signifcant bias but this was the best result I could achieve. The localization process mistakes possible since the obstacles are in this space. Moreover, the ToF sensor values were very biased away from the correct range of values especially when detecting the obstacles in the map.  </p>
+
+                                    <img class="img-fluid img-centered" src="5,-3.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                   
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Discussion and Conclusion</h2>
+
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">Firstly, to make the robot rotate in 20 degree incremenets are a bit of a challenge if you're executing it in closed loop PID. I had to tune the PID values multiple times since the closed loop was vulnerable to overshoot due to such small desired angle values. The results here, show some that at some points, the belief and groun truth align but not in the others. This shows that the results are not concistent. The variations at each location were observed especially in orientation due to imperfections in the PID. I believe that the dependecy on one data point to predict distance to the nearest obstacle by extrapolation is not capable of providing accurate data especially with noise in the surroundings during a 20-degree rotation. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">The robot's behavior while rotating each 20 degree was not completely accurate since the robot tends to rotate in a given tile and not a fixed point unlike what the assumption of localization. I believe that there should be multiple full 360 degree rotations with 20 degree increments and average out the values in order to correct the possible bias created by a singl point. This will likely get a data that has higher variance but a lower bias.</p>
+                                   
+
+
+
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
