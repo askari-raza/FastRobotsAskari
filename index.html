@@ -189,6 +189,15 @@
                         </div>
                         <h5 class="text-center">Lab 12</h5>
                     </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal13">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="last_title.jpeg" alt="..." />
+                        </div>
+                        <h5 class="text-center">Lab 13</h5>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2987,6 +2996,257 @@
                                     <p class="mb-4">    </p>
                                     <p class="mb-4">The robot's behavior while rotating each 20 degree was not completely accurate since the robot tends to rotate in a given tile and not a fixed point unlike what the assumption of localization. I believe that there should be multiple full 360 degree rotations with 20 degree increments and average out the values in order to correct the possible bias created by a singl point. This will likely get a data that has higher variance but a lower bias.</p>
                                    
+
+
+
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Modal 13-->
+        <div class="portfolio-modal modal fade" id="portfolioModal13" tabindex="-1" aria-labelledby="portfolioModal13" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Lab 13</h2>
+
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="last_title.jpeg" alt="..." />
+                                    <!-- Portfolio Modal - Text-->
+
+                                    <!-- GOAL-->
+                                    <p class="mb-4">Before I start my write up, I genuinely want to acknowledge the fact that this course was amazing! I loved every bit of the classes and labs regardless of how much time they required haha. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                    <!-- PRE LAB-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Objective</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">The objective of this lab was to combine all the knowledge gained in this course and use it to achieve one final goal. That goal was to finally have the robot navigate through a set of way points in the environment as quickly and accurately as possible. I can confidently say that the number of attempts to pull off this lab can be seen by the fact that my phone ran out of storage due to all the attempts that I tried to record.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">The coordinates through which we had to navigate the robot are as shown below:</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                 
+                                    
+                                    <img class="img-fluid img-centered" src="way points.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+                                   
+                                    <!-- TASK 1-->  
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Approach</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    
+
+                                    <p class="mb-4">As we had worked thoroughly on the mapping and localization using Bayes’ Filter, I found a lot of inaccuracy and randomness in my results in the previous labs especially in comparison with ground truth in the previous lab. Therefore, I decided to try and implement two independent but simultaneously operating closed loop PID control loops both for the linear distance and orientation control. I wanted to take this approach as the first potential solution and then move to the localization algorithm if PID fails to work. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">I started by all the relevant sensor initializations and modified the BLE commands functionality a little to allow tests on the robot during its operation. The primary BLE command and its functionality is shown below: </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="ble case.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">I then implemented merged the two PIDs together in such a way that they could be implemented together.  </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">LINEAR DISTANCE PID CONTROL</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">Since the Time of flight based PID labs, we have been implementing PID from a set point which was a distance from the obstacle in front. However, this time, we had to use the obstacle in front of us to move the robot to a certain distance from its position before it started moving linearly. For this, my logic was that after reaching every coordinate in the way point, the robot recorded the distance from the obstacle in front. It then calculated the difference between this distance and the distance that we want to make the robot travel. The final value gives us a value which is the setpoint. This means that if the distance from the obstacle is 1500mm and the robot needs to move 500mm, then a setpoint of 1000 is initiated. Since the robot starts at a distance of 1500mm and wants to reduce error to 0, it will move 500mm in the forward direction.  </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">A while loop was ran and its condition was that the linear distance PID control would run until the output duty cycle from the PID was within an absolute value of 5. This is when the code was exit out of the linear distance PID loop. The code below shows the implementation.  </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <img class="img-fluid img-centered" src="distance loop.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">ORIENTATION PID CONTROL</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">The next step was to implement orientation control PID loop. This was implemented in the good old way that I have been doing since lab 6. This loop was executed once the linear distance loop was exited. For this, the robot rotated by a set point angle until the angle error was less than or equal to the absolute of 2. The code for this is as shown below: </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <img class="img-fluid img-centered" src="angle loop.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">ROUTINE TO COVER FULL MAP</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+
+                                    <p class="mb-4">Now to make this work for all the way points, I noticed that the robot stops at a total of 8 points in the map. This meant that the robot had to do a total of 8 routines of implementing linear distance and orientation PID control loops. Therefore, to do this, I make a parent while loop in which the orientation and distance PID loops worked. The difference was that this loop ran for a total of 8 times with value incrementing by 1 at each step as shown below:  </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="main_loop.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <img class="img-fluid img-centered" src="main_loop1.JPG" alt="">
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">Now as the value of main_loop increased by 1 in every loop, the index of an array I set also changed by 1 and the set point values for both PID control loops would change with the change in index of the desired angle and distance arrays. The two arrays are shown below: </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <img class="img-fluid img-centered" src="arrays.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4">One thing to notice here is that when I moved from (0,0) to (-2,-1) at a distance of around 840mm and at 45 degrees, the sensor readings were not accurate at all, as a result of which, the robot would go way beyond the coordinate (-2,-1). Therefore, I made the robot go only in straight distance from one point to the other and not in diagonal distances. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <p class="mb-4"> The PID values were manually manipulated from the Python script that sent commands via BLE to the robot. The PID values that I got the best results for are shown below:</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <img class="img-fluid img-centered" src="pid values.JPG" alt="">
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4"> Once the robot moved from one point to the other and rotated to head towards the third point, I kept it at rest for 4 seconds to ensure nothing was in its way.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/DStwWFKM1yg" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">results</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+
+                                    <p class="mb-4"> I think I tested the robot on the map around 25 times with different PID values and along the way, my ToF sensor also returned some unusual values. After multiple tests of the main loop and ensuring that the robot followed the expected path, I was able to navigate the robot without any human interference or any commands sent to the robot during its attempt to navigate. The result I got is shown below:</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">conclusion</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4"> The robot didn’t always end up exactly at the correct coordinate and this is primarily because of the randomness in the values of the ToF sensor which were not fully accurate. Moreover, the linear interpolation I did to predict the distance in each loop of the PID, there were some inefficiencies caused by that too. However, the good thing was the the robot was almost always a maximum of one tile away from the center of the desired tile. We also see that while moving from (5,-2) to (5,3) it bumps into the wall. However, that bump was primarily because the robot was not oriented perfect at 90 degree against the front wall and hence, recorded distance that was slightly greater than the perpendicular distance. Nonetheless, it continued its routine of rotation and headed to the next way point which was pretty accurate and then finally completing the routine at the origin. </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Final Note</h2>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+                                    <p class="mb-4">I want to thank Professor Jonathan for being a massive support at all times and for accommodating to our requests as well. The team of students who assisted for this course was absolutely amazing. I want to particularly thank Rafi and Ignacio for always being there to guide and support through the labs and small tasks and queries no matter how dumb the question is. Finally, I want to thank my buddy, Rahul who also took this course. This class was 10 times more fun with him next to me struggling to make the robot move haha!  He was a massive support throughout the semester. Thank you for the amazing course. AND NOW ITS TIME TO SEE SOME OF MY ROBOT'S MOOD SWINGS.</p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/OUgIpgyHqeY" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/ZDAaubVq46g" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <div class="embed-container">
+                                        <iframe width = "560" height="315" src="https://www.youtube.com/embed/7dLlX3mK4Jw" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+                                    <p class="mb-4">    </p>
+
+
+
 
 
 
